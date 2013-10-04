@@ -1,0 +1,40 @@
+This file describes DocumentCluster, a program for clustering text documents 
+based on similarity of word frequencies. Document words are first filtered
+against a specified stop word list, then stemmed using the classic Porter
+stemming algorithm. The resulting data is then converted to Term Frequency -
+Inverse Document Frequency values, and normalized so each document is a vector
+of length one. The document data is internally represented as a sparse matrix
+with collapsed word columns. The vectors are then clustered using the classic
+k-means algorithm, using cosine similarity as the distance measure.
+
+To install:
+1. Copy files to a directory
+2. Create a subdirectory 'data'
+3. Move the supplied stopwords.txt file to this directory, or create a custom
+version. Words within the file must be specified on a single line seperated by 
+commas.
+4. Compile source files
+5. Copy the files to cluster to the data subdirectory
+6. Run as DocumentCluster [number of clusters] [list of files]
+
+The number of clusters will be the number specified or half the number of
+files, whichever is less. Files that have no word overlap with other files 
+after stop-word removal will be excluded from the clustering; this happens
+rarely in practice.
+
+    Copyright (C) 2013   Ezra Erb
+
+This program is free software: you can redistribute it and/or modify it under 
+the terms of the GNU General Public License version 3 as published by the Free 
+Software Foundation.
+
+This program is distributed in the hope that it will be useful, but WITHOUT 
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS 
+FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with 
+this program.  If not, see <http://www.gnu.org/licenses/>.
+
+I'd appreciate a note if you find this program useful or make updates. Please 
+contact me through LinkedIn or github (my profile also has a link to the code 
+depository)
